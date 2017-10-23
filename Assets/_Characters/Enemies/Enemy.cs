@@ -22,6 +22,7 @@ namespace RPG.Characters
         [SerializeField] GameObject projectileSocket;
         [SerializeField] Vector3 aimOffset = new Vector3(0, 1.5f, 0);
 
+        bool isGitHubWorking = false;
         bool isAttacking = false;
         float currentHealthPoints;
         AICharacterControl aiCharacterControl = null;
