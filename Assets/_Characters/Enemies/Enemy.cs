@@ -12,8 +12,8 @@ namespace RPG.Characters
     public class Enemy : MonoBehaviour, IDamageable
     {
 
-        [SerializeField] float maxHealthPoints = 100f;
-        [SerializeField] float chaseRadius = 4f;
+        //[SerializeField] float maxHealthPoints = 100f;
+        //[SerializeField] float chaseRadius = 4f;
 
         [SerializeField] float attackRadius = 2f;
         [SerializeField] float damagePerShot = 9f;
