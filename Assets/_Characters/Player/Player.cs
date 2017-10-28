@@ -12,8 +12,7 @@ using RPG.Weapons;
 namespace RPG.Characters
 {
     public class Player : MonoBehaviour, IDamageable
-    {
-        [SerializeField] int enemyLayer = 9;
+    {      
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] float damagePerHit = 5f;
         [SerializeField] Weapon weaponInUse = null;
@@ -74,30 +73,23 @@ namespace RPG.Characters
         private void RegisterForMouseClick()
         {
             cameraRayCaster = FindObjectOfType<CameraRaycaster>();
-            cameraRayCaster.notifyMouseClickObservers += OnMouseClick;
+            cameraRayCaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
-          void OnMouseClick(RaycastHit raycastHit, int layerHit)
+        void OnMouseOverEnemy(Enemy enemy)
         {
-            if (layerHit == enemyLayer)
+            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
             {
-                var enemy = raycastHit.collider.gameObject;
-
-                if (IsTargetInRange(enemy))
-                {
-                    AttackTarget(enemy);
-                }               
+                AttackTarget(enemy);
             }
-        }
-
-
-        private void AttackTarget(GameObject target)
+        }    
+    
+        private void AttackTarget(Enemy enemy)
         {
-            var enemyComponenet = target.GetComponent<Enemy>();
             if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits())
             {
                 animator.SetTrigger("Attack"); //TODO make const
-                enemyComponenet.TakeDamage(damagePerHit);
+                enemy.TakeDamage(damagePerHit);
                 lastHitTime = Time.time;
             }
         }
