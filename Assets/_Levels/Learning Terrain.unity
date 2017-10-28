@@ -802,17 +802,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13615390, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 01571ba68fb2dad46aa03094ab219579,
+        type: 2}
     - target: {fileID: 114766724811304892, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 1757331773}
-    - target: {fileID: 114997914552458116, guid: 7737647c22c1fc64a88d5cd030c352ce,
-        type: 2}
-      propertyPath: ability1
-      value: 
-      objectReference: {fileID: 11400000, guid: 4bd769087c0fca84a8f2c69ebbd7b7be,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_IsPrefabParent: 0

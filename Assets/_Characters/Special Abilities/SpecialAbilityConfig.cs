@@ -10,7 +10,14 @@ namespace RPG.Characters
         [SerializeField]
         float energyCost = 10f;
 
-        abstract public ISpacialAbility AddCopmonent(GameObject gameObjectToAttachTo);
+        protected ISpacialAbility behaviour;
+
+        abstract public void AttachComponentTo(GameObject gameObjectToAttachTo);
+
+        public void Use()
+        {
+            behaviour.Use();
+        }
 
     }
 }

@@ -11,11 +11,11 @@ namespace RPG.Characters
         [SerializeField]
         float extraDamage = 10f;
 
-        public override ISpacialAbility AddCopmonent(GameObject gameObjectToAttachTo)
+        public override void AttachComponentTo(GameObject gameObjectToAttachTo)
         {
             var behaviourComponent = gameObjectToAttachTo.AddComponent<PowerAttackBehaviour>();
             behaviourComponent.SetConfig(this);
-            return behaviourComponent;
+            behaviour = behaviourComponent;
         }
     }
 }
