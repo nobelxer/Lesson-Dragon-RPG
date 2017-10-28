@@ -899,6 +899,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114766724811304892, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 1757331773}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_IsPrefabParent: 0
@@ -2601,7 +2606,6 @@ GameObject:
   - component: {fileID: 1757331771}
   - component: {fileID: 1757331774}
   - component: {fileID: 1757331773}
-  - component: {fileID: 1757331772}
   m_Layer: 5
   m_Name: Energy Bar
   m_TagString: Untagged
@@ -2628,18 +2632,6 @@ RectTransform:
   m_AnchoredPosition: {x: 3, y: 76.3}
   m_SizeDelta: {x: -73, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1757331772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114225469873570598, guid: 75a43cca039264395b99698681e52275,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1757331770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e94587b07b71f154f861d927f993fe9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1757331773
 MonoBehaviour:
   m_ObjectHideFlags: 0

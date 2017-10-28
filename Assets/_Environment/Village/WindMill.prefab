@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 4951465096147614}
   - component: {fileID: 33321530680580432}
   - component: {fileID: 23000746278190946}
-  - component: {fileID: 114303246207418346}
   - component: {fileID: 114502293046908090}
   m_Layer: 0
   m_Name: Wind_Mill_Blades
@@ -193,20 +192,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1368968028811168}
   m_Mesh: {fileID: 4300000, guid: 4bd13a04647831b4ab9b359ce38b317d, type: 3}
---- !u!114 &114303246207418346
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1368968028811168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b421f52d5ac94057b2c2a0437d01809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xRotationsPerMinute: 1
-  yRotationsPerMinute: 1
-  zRotationsPerMinute: 1
 --- !u!114 &114502293046908090
 MonoBehaviour:
   m_ObjectHideFlags: 1
