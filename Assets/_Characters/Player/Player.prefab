@@ -30,8 +30,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.14, y: 0, z: -38.93}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25, y: 0, z: 15.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4699984863842074}
@@ -96,7 +96,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
-  m_Material: {fileID: 13400000, guid: 01571ba68fb2dad46aa03094ab219579, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
@@ -747,6 +747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7192d85f994ca44943005ed793a1eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  maxEnergyPoints: 100
 --- !u!114 &114997914552458116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -758,12 +760,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf598e4880ed1bf4eb0daa98fed01fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLayer: 9
   maxHealthPoints: 100
   damagePerHit: 5
   weaponInUse: {fileID: 11400000, guid: fe501d3a585d96d45a47433b99b3c9cf, type: 2}
   animatorOverrideController: {fileID: 22100000, guid: b6deae4b9a8dd244e9f01e6fb39b0cc6,
     type: 2}
+  ability1: {fileID: 11400000, guid: 28072d13778d2784da8ba27ac2ec175a, type: 2}
 --- !u!137 &137208210369545024
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
