@@ -44,13 +44,11 @@ namespace RPG.Characters
 
         public void TakeDamage(float damage)
         {
-            ReduceHealth(damage);
-            audioSource.clip = damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
-            audioSource.Play();
             bool playerDies = (currentHealthPoints - damage <= 0);
+            ReduceHealth(damage);                      
             if (playerDies)
             {              
-                StartCoroutine(KillPlayer());                
+                StartCoroutine(KillPlayer());        
             }      
         }
 
@@ -66,7 +64,8 @@ namespace RPG.Characters
         private void ReduceHealth(float damage)
         {
             currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
-            //play sound
+            audioSource.clip = damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
+            audioSource.Play();
         }
 
         private void SetCurrentMaxHealth()
