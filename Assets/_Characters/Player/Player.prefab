@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 114645434349328948}
   - component: {fileID: 114997914552458116}
   - component: {fileID: 114766724811304892}
+  - component: {fileID: 82373882241341986}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -46,7 +47,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -99,7 +100,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
+  m_Radius: 0.2
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.96, z: 0}
@@ -774,6 +775,86 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873737012086646}
   m_Mesh: {fileID: 4300002, guid: eee292b300b8dfa41be00641ff83b2a1, type: 3}
+--- !u!82 &82373882241341986
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149790}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114364507082500324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -821,6 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyBar: {fileID: 0}
   maxEnergyPoints: 100
+  regenPointsPerSecond: 2
 --- !u!114 &114997914552458116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -833,11 +915,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
-  damagePerHit: 5
+  baseDamage: 5
   weaponInUse: {fileID: 11400000, guid: fe501d3a585d96d45a47433b99b3c9cf, type: 2}
   animatorOverrideController: {fileID: 22100000, guid: b6deae4b9a8dd244e9f01e6fb39b0cc6,
     type: 2}
+  damageSounds:
+  - {fileID: 8300000, guid: 06e23b8276977f441aa028109f4e2668, type: 3}
+  - {fileID: 8300000, guid: 63a9d094b885e714f8bf194c4ee53aeb, type: 3}
+  - {fileID: 8300000, guid: c0764b6ea4355d14283a1cad042583a9, type: 3}
+  - {fileID: 8300000, guid: d6cad2c925fab6f4aa9b347323a97037, type: 3}
+  - {fileID: 8300000, guid: 7e6a81dde1be6a743a73d0e487c7ea6a, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 70e1c265afa57f3498791a216514329f, type: 3}
+  - {fileID: 8300000, guid: 688a88eb201d4f34280005e2221d4012, type: 3}
+  - {fileID: 8300000, guid: d55c82a158f5d9947baef3a3737188c6, type: 3}
   abilities:
+  - {fileID: 11400000, guid: 25fd9e3df3b232e4c9e70152b1ab2cd6, type: 2}
   - {fileID: 11400000, guid: 28072d13778d2784da8ba27ac2ec175a, type: 2}
 --- !u!137 &137208210369545024
 SkinnedMeshRenderer:
@@ -915,7 +1008,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 149790}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

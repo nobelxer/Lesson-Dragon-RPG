@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/_Levels/Learning Terrain.unity
+    guid: b3e507c8535e0094eb8e649f1b35b708
