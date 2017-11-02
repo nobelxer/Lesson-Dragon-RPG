@@ -47,7 +47,7 @@ namespace RPG.Core
 
         void OnDrawGizmos()
         {
-            Gizmos.color = new Color(0, 255f, 0, .5f);
+            Gizmos.color = new Color(120f, 255f, 0, .5f);
             Gizmos.DrawWireSphere(transform.position, triggerRadius);
         }
     }
