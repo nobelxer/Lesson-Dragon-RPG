@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG.Characters
 {
-    public class PowerAttackBehaviour : MonoBehaviour, ISpacialAbility
+    public class PowerAttackBehaviour : AbilityBehaviour
     {
         PowerAttackConfig config;
         AudioSource audioSource = null;
@@ -19,7 +19,7 @@ namespace RPG.Characters
             this.config = configToSet;
         }
 
-        public void Use(AbilityUseParams useParams)
+        public override void Use(AbilityUseParams useParams)
         {
             DealDamage(useParams);
             audioSource.clip = config.GetAudioClip();
@@ -29,7 +29,8 @@ namespace RPG.Characters
 
         private void PlayParticleEffect()
         {
-            var prefab = Instantiate(config.GetParticlePrefab(), transform.position, Quaternion.identity);
+            var particlePrefab = config.GetParticlePrefab();
+            var prefab = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
             //TODO decide on positioning
             ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
             myParticleSystem.Play();

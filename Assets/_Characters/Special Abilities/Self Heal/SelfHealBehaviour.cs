@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG.Characters
 {
-    public class SelfHealBehaviour : MonoBehaviour, ISpacialAbility
+    public class SelfHealBehaviour : AbilityBehaviour
     {
         SelfHealConfig config = null;
         Player player = null;
@@ -22,7 +22,7 @@ namespace RPG.Characters
         }
        
 
-        public void Use(AbilityUseParams useParams)
+        public override void Use(AbilityUseParams useParams)
         {
             player.Heal(config.GetExtraHealth());
             audioSource.clip = config.GetAudioClip();
@@ -32,7 +32,8 @@ namespace RPG.Characters
 
         private void PlayParticleEffect()
         {
-            var prefab = Instantiate(config.GetParticlePrefab(), transform.position, Quaternion.identity);
+            var particlePrefab = config.GetParticlePrefab();
+            var prefab = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
             prefab.transform.parent = transform;
             ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
             myParticleSystem.Play();

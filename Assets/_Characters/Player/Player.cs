@@ -31,7 +31,6 @@ namespace RPG.Characters
         const string DEATH_TRIGGER = "Death";
         const string ATTACK_TRIGGER = "Attack";
 
-        ParticleSystem myParticleSystem = null;
         Enemy enemy = null;
         AudioSource audioSource = null;
         Animator animator = null;

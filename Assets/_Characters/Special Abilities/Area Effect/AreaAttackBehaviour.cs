@@ -5,7 +5,8 @@ using RPG.Characters;
 using RPG.Core;
 using System;
 
-public class AreaAttackBehaviour : MonoBehaviour, ISpacialAbility {
+public class AreaAttackBehaviour : AbilityBehaviour
+{
 
     AreaEffectConfig config;
     AudioSource audioSource = null;
@@ -20,7 +21,7 @@ public class AreaAttackBehaviour : MonoBehaviour, ISpacialAbility {
         this.config = configToSet;
     }
 
-    public void Use(AbilityUseParams useParams)
+    public override void Use(AbilityUseParams useParams)
     {
         DealRadialDamage(useParams);
         audioSource.clip = config.GetAudioClip();
@@ -30,7 +31,8 @@ public class AreaAttackBehaviour : MonoBehaviour, ISpacialAbility {
 
     private void PlayParticleEffect()
     {
-        var prefab = Instantiate(config.GetParticlePrefab(), transform.position, Quaternion.identity);
+        var particlePrefab = config.GetParticlePrefab();
+        var prefab = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
         //TODO decide on positioning
         ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
         myParticleSystem.Play();
