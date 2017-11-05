@@ -7,30 +7,38 @@ namespace RPG.Characters
     public class PowerAttackBehaviour : MonoBehaviour, ISpacialAbility
     {
         PowerAttackConfig config;
+        AudioSource audioSource = null;
+
+        void Start()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         public void SetConfig(PowerAttackConfig configToSet)
         {
             this.config = configToSet;
         }
 
-        // Use this for initialization
-        void Start()
-        {
-            print("Power Attack Behaviour attached to " + gameObject.name);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public void Use(AbilityUseParams useParams)
         {
-            print("Power attack used by: " + gameObject.name);
+            DealDamage(useParams);
+            audioSource.clip = config.GetAudioClip();
+            PlayParticleEffect();
+            audioSource.Play();
+        }
+
+        private void PlayParticleEffect()
+        {
+            var prefab = Instantiate(config.GetParticlePrefab(), transform.position, Quaternion.identity);
+            //TODO decide on positioning
+            ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
+            myParticleSystem.Play();
+            Destroy(prefab, myParticleSystem.main.duration);
+        }
+        private void DealDamage(AbilityUseParams useParams)
+        {
             float damgeToDeal = useParams.baseDamage + config.GetExtraDamage();
             useParams.target.TakeDamage(damgeToDeal);
-
         }
     }
 }

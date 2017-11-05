@@ -148,7 +148,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.Company.ProductName
+    Android: rafatiger.test1.com
     Standalone: unity.DefaultCompany.UFO Game
     Tizen: com.Company.ProductName
     iOS: com.Company.ProductName

@@ -15,7 +15,7 @@ namespace RPG.CameraUI
         const int POTENTIALLY_WALKABLE_LAYER = 8;
         float maxRaycastDepth = 1000f; // Hard coded value
 
-        Rect screenRect = new Rect(0, 0, Screen.width, Screen.height);
+        Rect screenRect;
 
         // When mouse is over enemy
         public delegate void OnMouseOverEnemy(Enemy enemy);
@@ -27,6 +27,7 @@ namespace RPG.CameraUI
 
         void Update()
         {
+            screenRect = new Rect(0, 0, Screen.width, Screen.height);
             // Check if pointer is over an interactable UI element
             if (EventSystem.current.IsPointerOverGameObject())
             {

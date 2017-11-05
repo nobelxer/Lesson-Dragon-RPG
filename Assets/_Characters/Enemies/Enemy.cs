@@ -55,7 +55,7 @@ namespace RPG.Characters
             {
                 isAttacking = true;
                 float randomiseDelay = Random.Range(firingPeriodInS - firingPeriodVariation, firingPeriodInS + firingPeriodVariation); 
-                InvokeRepeating("FireProjectile", 0f, firingPeriodInS); // TODO switch to coroutines
+                InvokeRepeating("FireProjectile", randomiseDelay, firingPeriodInS); // TODO switch to coroutines
             }
             if (distanceToPlayer > attackRadius)
             {
