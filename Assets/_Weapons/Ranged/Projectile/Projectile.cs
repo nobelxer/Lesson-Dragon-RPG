@@ -44,8 +44,7 @@ namespace RPG.Weapons
         private void DamageIfDamageable(Collision collision)
         {
             Component damageableComponent = collision.gameObject.GetComponent(typeof(IDamageable));
-            print("damageableComponent = " + damageableComponent);
-
+          
             if (damageableComponent)
             {
                 (damageableComponent as IDamageable).TakeDamage(damageCaused);

@@ -6,37 +6,13 @@ using RPG.Core;
 using System;
 
 public class AreaAttackBehaviour : AbilityBehaviour
-{
-
-    AreaEffectConfig config;
-    AudioSource audioSource = null;
-
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    public void SetConfig(AreaEffectConfig configToSet)
-    {
-        this.config = configToSet;
-    }
+{   
 
     public override void Use(AbilityUseParams useParams)
     {
-        DealRadialDamage(useParams);
-        audioSource.clip = config.GetAudioClip();
+        DealRadialDamage(useParams);    
         PlayParticleEffect();
-        audioSource.Play();
-    }
-
-    private void PlayParticleEffect()
-    {
-        var particlePrefab = config.GetParticlePrefab();
-        var prefab = Instantiate(particlePrefab, transform.position, particlePrefab.transform.rotation);
-        //TODO decide on positioning
-        ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
-        myParticleSystem.Play();
-        Destroy(prefab, myParticleSystem.main.duration);
+        PlayAbilitySound();
     }
 
     private void DealRadialDamage(AbilityUseParams useParams)
@@ -45,9 +21,9 @@ public class AreaAttackBehaviour : AbilityBehaviour
 
             (
             transform.position,
-            config.GetRadius(),
+            (config as AreaEffectConfig).GetRadius(),
             Vector3.up,
-            config.GetRadius()
+            (config as AreaEffectConfig).GetRadius()
             );
 
         foreach (RaycastHit hit in hits)
@@ -56,7 +32,7 @@ public class AreaAttackBehaviour : AbilityBehaviour
             bool hitPlayer = hit.collider.gameObject.GetComponent<Player>();
             if (damageable != null && !hitPlayer)
             {
-                float damageToDeal = useParams.baseDamage + config.GetDamageToEachTarget(); //TODO ok rick?
+                float damageToDeal = useParams.baseDamage + (config as AreaEffectConfig).GetDamageToEachTarget(); //TODO ok rick?
                 damageable.TakeDamage(damageToDeal);
             }
         }
