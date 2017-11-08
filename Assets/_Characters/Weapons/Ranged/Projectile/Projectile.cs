@@ -5,7 +5,7 @@ using UnityEngine;
 //consider re-wire
 using RPG.Core;
 
-namespace RPG.Weapons
+namespace RPG.Characters
 {
     public class Projectile : MonoBehaviour
     {
