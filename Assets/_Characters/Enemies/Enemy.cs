@@ -21,8 +21,7 @@ namespace RPG.Characters
         [SerializeField] Vector3 aimOffset = new Vector3(0, 1.5f, 0);
 
         bool isAttacking = false;
-        float currentHealthPoints;
-        AICharacterControl aiCharacterControl = null;
+        float currentHealthPoints;   
         Player player = null;
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
@@ -35,8 +34,7 @@ namespace RPG.Characters
 
         void Start()
         {
-            player = FindObjectOfType<Player>();
-            aiCharacterControl = GetComponent<AICharacterControl>();
+            player = FindObjectOfType<Player>();           
             currentHealthPoints = maxHealthPoints;
         }
 
@@ -63,11 +61,11 @@ namespace RPG.Characters
 
             if (distanceToPlayer <= chaseRadius)
             {
-                aiCharacterControl.SetTarget(player.transform);
+               // aiCharacterControl.SetTarget(player.transform);
             }
             else
             {
-                aiCharacterControl.SetTarget(transform);
+               // aiCharacterControl.SetTarget(transform);
             }
         }
 
