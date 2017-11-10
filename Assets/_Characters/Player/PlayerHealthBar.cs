@@ -22,7 +22,7 @@ namespace RPG.Characters
         // Update is called once per frame
         void Update()
         {
-            healthOrb.fillAmount = player.healthAsPercentage;
+          
         }
     }
 }
