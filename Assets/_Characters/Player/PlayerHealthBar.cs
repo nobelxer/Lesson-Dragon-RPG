@@ -10,12 +10,12 @@ namespace RPG.Characters
     {
 
         Image healthOrb;
-        Player player;
+        PlayerMovement player;
 
         // Use this for initialization
         void Start()
         {
-            player = FindObjectOfType<Player>();
+            player = FindObjectOfType<PlayerMovement>();
             healthOrb = GetComponent<Image>();
         }
 

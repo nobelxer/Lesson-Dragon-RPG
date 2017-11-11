@@ -22,7 +22,7 @@ namespace RPG.Characters
 
         Animator animator;
         AudioSource audioSource;
-        CharacterMovement characterMovement;
+        Character characterMovement;
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
@@ -30,7 +30,7 @@ namespace RPG.Characters
         {
             animator = GetComponent<Animator>();
             audioSource = GetComponent<AudioSource>();
-            characterMovement = GetComponent<CharacterMovement>();
+            characterMovement = GetComponent<Character>();
 
             currentHealthPoints = maxHealthPoints;
         }
@@ -72,7 +72,7 @@ namespace RPG.Characters
             characterMovement.Kill();
             animator.SetTrigger(DEATH_TRIGGER);
 
-            var playerComponent = GetComponent<Player>();
+            var playerComponent = GetComponent<PlayerMovement>();
             if(playerComponent && playerComponent.isActiveAndEnabled)
             {
                 audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];

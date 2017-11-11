@@ -36,20 +36,22 @@ namespace RPG.Characters
             var layerCollideWith = collision.gameObject.layer;
             if (shooter && layerCollideWith != shooter.layer)
             {
-                DamageIfDamageable(collision);
+                //DamageIfDamageable(collision);
             }
 
         }
 
-        private void DamageIfDamageable(Collision collision)
-        {
-            Component damageableComponent = collision.gameObject.GetComponent(typeof(IDamageable));
+        //TODO takle care ot fthis
+
+        //private void DamageIfDamageable(Collision collision)
+        //{
+        //    Component damageableComponent = collision.gameObject.GetComponent(typeof(IDamageable));
           
-            if (damageableComponent)
-            {
-                (damageableComponent as IDamageable).TakeDamage(damageCaused);
-            }
-            Destroy(gameObject, DESTROY_DELAY);
-        }
+        //    if (damageableComponent)
+        //    {
+        //        (damageableComponent as IDamageable).TakeDamage(damageCaused);
+        //    }
+        //    Destroy(gameObject, DESTROY_DELAY);
+        //}
     }
 }

@@ -8,14 +8,14 @@ using System;
 public class AreaAttackBehaviour : AbilityBehaviour
 {   
 
-    public override void Use(AbilityUseParams useParams)
+    public override void Use(GameObject target)
     {
-        DealRadialDamage(useParams);    
+        DealRadialDamage();    
         PlayParticleEffect();
         PlayAbilitySound();
     }
 
-    private void DealRadialDamage(AbilityUseParams useParams)
+    private void DealRadialDamage()
     {    
         RaycastHit[] hits = Physics.SphereCastAll
 
@@ -28,11 +28,11 @@ public class AreaAttackBehaviour : AbilityBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            var damageable = hit.collider.gameObject.GetComponent<IDamageable>();
-            bool hitPlayer = hit.collider.gameObject.GetComponent<Player>();
+            var damageable = hit.collider.gameObject.GetComponent<HealthSystem>();
+            bool hitPlayer = hit.collider.gameObject.GetComponent<PlayerMovement>();
             if (damageable != null && !hitPlayer)
             {
-                float damageToDeal = useParams.baseDamage + (config as AreaEffectConfig).GetDamageToEachTarget(); //TODO ok rick?
+                float damageToDeal = (config as AreaEffectConfig).GetDamageToEachTarget(); //TODO ok rick?
                 damageable.TakeDamage(damageToDeal);
             }
         }
