@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -68,22 +67,27 @@ namespace RPG.Characters
 
         IEnumerator KillCharacter()
         {
-            StopAllCoroutines();
             characterMovement.Kill();
             animator.SetTrigger(DEATH_TRIGGER);
 
-            var playerComponent = GetComponent<PlayerMovement>();
+            var playerComponent = GetComponent<PlayerControl>();
             if(playerComponent && playerComponent.isActiveAndEnabled)
             {
                 audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
                 audioSource.Play();
-                yield return new WaitForSecondsRealtime(audioSource.clip.length);
+                yield return new WaitForSecondsRealtime(audioSource.clip.length +2f);
                 SceneManager.LoadScene(0);
             }
             else // assume is enemy
             {
-                DestroyObject(gameObject, deathVanishSeconds);
+                StartCoroutine(WaitToDestroyEnemy());              
             }
+        }
+
+        IEnumerator WaitToDestroyEnemy()
+        {
+            yield return new WaitForSeconds(20f);
+            DestroyObject(gameObject, deathVanishSeconds);
         }
     }
 }

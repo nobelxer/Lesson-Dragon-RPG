@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741521435fc2d2a45bf595f5fca0182a, type: 3}
   m_Name: AOE_L1
   m_EditorClassIdentifier: 
-  energyCost: 50
+  energyCost: 1
   particlePrefab: {fileID: 1016999519986604, guid: 1c20593b84443014e889ef01e24d38e4,
     type: 2}
   audioClips:
   - {fileID: 8300000, guid: 8e78bd052a068ed42b358cc59d498bfa, type: 3}
+  abilityAnimation: {fileID: 7400000, guid: 62029de0e37cd754bbcf69c2ed4e94a5, type: 3}
   radius: 5
   damageToEachTarget: 50

@@ -1,17 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using RPG.Characters;
-using RPG.Core;
-using System;
 
 public class AreaAttackBehaviour : AbilityBehaviour
 {   
-
     public override void Use(GameObject target)
     {
         DealRadialDamage();    
         PlayParticleEffect();
+        PlayAbilityAnimation();
         PlayAbilitySound();
     }
 
@@ -29,11 +25,11 @@ public class AreaAttackBehaviour : AbilityBehaviour
         foreach (RaycastHit hit in hits)
         {
             var damageable = hit.collider.gameObject.GetComponent<HealthSystem>();
-            bool hitPlayer = hit.collider.gameObject.GetComponent<PlayerMovement>();
+            bool hitPlayer = hit.collider.gameObject.GetComponent<PlayerControl>();
             if (damageable != null && !hitPlayer)
             {
-                float damageToDeal = (config as AreaEffectConfig).GetDamageToEachTarget(); //TODO ok rick?
-                damageable.TakeDamage(damageToDeal);
+                float damageToDeal = (config as AreaEffectConfig).GetDamageToEachTarget();
+                damageable.TakeDamage(damageToDeal);              
             }
         }
     }

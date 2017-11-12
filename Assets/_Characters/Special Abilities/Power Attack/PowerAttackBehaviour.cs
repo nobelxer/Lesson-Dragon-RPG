@@ -11,12 +11,13 @@ namespace RPG.Characters
             DealDamage(target);    
             PlayParticleEffect();
             PlayAbilitySound();
+            PlayAbilityAnimation();
         }
   
         private void DealDamage(GameObject target)
         {
             float damgeToDeal = (config as PowerAttackConfig).GetExtraDamage();
-            target.GetComponent<HealthSystem>().TakeDamage(damgeToDeal);
+            target.GetComponent<HealthSystem>().TakeDamage(damgeToDeal);         
         }
     }
 }

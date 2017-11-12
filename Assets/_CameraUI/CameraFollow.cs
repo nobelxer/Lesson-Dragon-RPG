@@ -8,18 +8,23 @@ namespace RPG.CameraUI
     {
 
         GameObject player;
+        Vector3 target;
+        public float smoothTime = 0.3f;
+        private Vector3 velocity = Vector3.zero;
 
         // Use this for initialization
         void Start()
-        {
-
-            player = GameObject.FindGameObjectWithTag("Player");
+        {            
+            player = GameObject.FindGameObjectWithTag("Player");            
         }
 
         // Update is called once per frame
         void LateUpdate()
         {
-            transform.position = player.transform.position;
+            target = player.transform.position;
+            transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, smoothTime);
         }
+
+     
     }
 }

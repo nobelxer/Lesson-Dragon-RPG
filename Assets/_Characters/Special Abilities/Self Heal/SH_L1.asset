@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0793568def9bc6646b06773318543e3d, type: 3}
   m_Name: SH_L1
   m_EditorClassIdentifier: 
-  energyCost: 10
+  energyCost: 1
   particlePrefab: {fileID: 1620279672666902, guid: ca332f9433269484c9c2a379746e335f,
     type: 2}
   audioClips:
   - {fileID: 8300000, guid: bde82bdf24830d541aae16232e44aa76, type: 3}
+  abilityAnimation: {fileID: 7400000, guid: 98bf046065f24b04786d583c7c3c999b, type: 3}
   extraHealth: 50
