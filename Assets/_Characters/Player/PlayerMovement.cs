@@ -8,11 +8,9 @@ namespace RPG.Characters
 
         [Range (0.1f, 1.0f)] [SerializeField] float criticalHitChacnce = 0.1f;
         [SerializeField] float criticalHitMultiplier = 1.25f;
-        [SerializeField] ParticleSystem criticalHitParticle;                  
+        [SerializeField] ParticleSystem criticalHitParticle; 
 
-       
-
-        Enemy enemy;
+        EnemyAI enemy;
         Character character;
         
         SpecialAbilities abilities;
@@ -28,8 +26,7 @@ namespace RPG.Characters
             abilities = GetComponent<SpecialAbilities>();
             weaponSystem = GetComponent<WeaponSystem>();
 
-            RegisterForMouseEvenets();     
-           
+            RegisterForMouseEvenets();
         }
 
         private void RegisterForMouseEvenets()
@@ -38,6 +35,7 @@ namespace RPG.Characters
             cameraRayCaster.onMouseOverEnemy += OnMouseOverEnemy;
             cameraRayCaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
         }
+
         void Update()
         {
           ScanForAbilityKeyDown();          
@@ -62,7 +60,7 @@ namespace RPG.Characters
             }
         }
         
-        void OnMouseOverEnemy(Enemy enemyToSet)
+        void OnMouseOverEnemy(EnemyAI enemyToSet)
         {
             this.enemy = enemyToSet;
             if (Input.GetMouseButton(0) && IsTargetInRange(enemyToSet.gameObject))

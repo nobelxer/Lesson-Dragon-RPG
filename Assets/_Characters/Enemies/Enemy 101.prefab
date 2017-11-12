@@ -690,6 +690,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4329614944127940}
   - component: {fileID: 114871362186958994}
+  - component: {fileID: 114529847914060522}
+  - component: {fileID: 114820440946967412}
   m_Layer: 0
   m_Name: Enemy 101
   m_TagString: Untagged
@@ -1050,7 +1052,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1850572303271518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.71, y: 0.22, z: 14.61}
+  m_LocalPosition: {x: 30.71, y: 0.35, z: 14.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4892852611562328}
@@ -1892,6 +1894,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab48fc5ce2eb2c84393e968ba1053464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114529847914060522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850572303271518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b872e7718ff86f942827b2a5a784fc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 5
+  currentWeaponConfig: {fileID: 11400000, guid: 2b01dc9a311857f4eab516470ccd1126,
+    type: 2}
+--- !u!114 &114820440946967412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850572303271518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a76306ee5122d4c8eb8e5f420b76b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseRadius: 4
 --- !u!114 &114871362186958994
 MonoBehaviour:
   m_ObjectHideFlags: 1

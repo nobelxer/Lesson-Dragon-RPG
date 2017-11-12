@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-//consider re-wire
-using RPG.Core;
+﻿using UnityEngine;
 
 namespace RPG.Characters
 {
