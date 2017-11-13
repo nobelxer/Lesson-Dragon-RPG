@@ -45,7 +45,8 @@ namespace RPG.Characters
         {
             if (Input.GetMouseButton(0))
             {
-                character.SetDestination(destination);
+                weaponSystem.StopAttacking();
+                character.SetDestination(destination);                      
             }
         }
 

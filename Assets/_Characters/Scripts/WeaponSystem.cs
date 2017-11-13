@@ -98,7 +98,8 @@ namespace RPG.Characters
 
         public void StopAttacking()
         {
-            StopAllCoroutines();
+            animator.StopPlayback();
+            StopAllCoroutines();            
         }
 
         IEnumerator AttackTargetRepeatedly()
@@ -119,7 +120,7 @@ namespace RPG.Characters
                     lastHitTime = Time.time;
                 }
                 yield return new WaitForSeconds(timeToWait);
-            }           
+            }                   
         }
 
         void AttackTargetOnce()
@@ -129,7 +130,6 @@ namespace RPG.Characters
             float damageDelay = currentWeaponConfig.GetDemageDelay();
             SetAttackAnimation();
             StartCoroutine(DamageAfterDelay(damageDelay));
-
         }
 
         IEnumerator DamageAfterDelay(float damageDelay)

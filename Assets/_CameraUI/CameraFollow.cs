@@ -23,8 +23,6 @@ namespace RPG.CameraUI
         {
             target = player.transform.position;
             transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, smoothTime);
-        }
-
-     
+        }     
     }
 }
